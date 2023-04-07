@@ -23,22 +23,25 @@ public class ProcessingGame {
         Collections.sort(leagueB, playerComparator);
         Collections.sort(leagueC, playerComparator);
         Collections.sort(leagueD, playerComparator);
+        printLeague();
 
-        listWinners.add(leagueA.get(0));
-        listWinners.add(leagueB.get(0));
-        listWinners.add(leagueC.get(0));
-        listWinners.add(leagueD.get(0));
+        listWinners.add(0, leagueA.get(0));
+        listWinners.add(1, leagueB.get(0));
+        listWinners.add(2, leagueC.get(0));
+        listWinners.add(3, leagueD.get(0));
         processGameLeague(listWinners);
         Collections.sort(listWinners, playerComparator);
-
-        printLeague();
+        System.out.println("Winners between winners from leagues : ");
+        print(listWinners);
     }
 
-    private void fillPlayersLeagues() {
+       private void fillPlayersLeagues() {
         fillPlayers(League.A, 0.0, leagueA);
         fillPlayers(League.B, 0.0, leagueB);
         fillPlayers(League.C, 0.0, leagueC);
         fillPlayers(League.D, 0.0, leagueD);
+
+
     }
 
     private List<Player> fillPlayers(League league, double points, List<Player> playerList) {
@@ -121,8 +124,6 @@ public class ProcessingGame {
         System.out.println("Result game from league D :");
         print(leagueD);
         System.out.println();
-        System.out.println("Winners between winners from leagues : ");
-        print(listWinners);
     }
 
     private void print(List<Player> playerList) {
