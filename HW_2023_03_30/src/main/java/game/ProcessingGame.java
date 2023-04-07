@@ -9,7 +9,7 @@ public class ProcessingGame {
     private List<Player> leagueC = new ArrayList<>();
     private List<Player> leagueD = new ArrayList<>();
 
-    private List<Player> leagueWinner = new ArrayList<>();
+    private List<Player> listWinners = new ArrayList<>();
 
 
     public void startGame() {
@@ -24,12 +24,12 @@ public class ProcessingGame {
         Collections.sort(leagueC, playerComparator);
         Collections.sort(leagueD, playerComparator);
 
-        leagueWinner.add(leagueA.get(0));
-        leagueWinner.add(leagueB.get(0));
-        leagueWinner.add(leagueC.get(0));
-        leagueWinner.add(leagueD.get(0));
-        processGameLeague(leagueWinner);
-        Collections.sort(leagueWinner, playerComparator);
+        listWinners.add(leagueA.get(0));
+        listWinners.add(leagueB.get(0));
+        listWinners.add(leagueC.get(0));
+        listWinners.add(leagueD.get(0));
+        processGameLeague(listWinners);
+        Collections.sort(listWinners, playerComparator);
 
         printLeague();
     }
@@ -122,7 +122,7 @@ public class ProcessingGame {
         print(leagueD);
         System.out.println();
         System.out.println("Winners between winners from leagues : ");
-        print(leagueWinner);
+        print(listWinners);
     }
 
     private void print(List<Player> playerList) {
