@@ -1,7 +1,11 @@
 import java.util.*;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summingInt;
 
 /**
  * Описание задания.
@@ -21,31 +25,42 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        String s = "Wuppertal ist mit 354.572 Einwohnern (31. Dezember 2021)[2] die größte Stadt und das Industrie-, Wirtschafts-, Bildungs- und Kulturzentrum des Bergischen Landes im Westen Deutschlands. Die Großstadt liegt südlich des Ruhrgebiets im Regierungsbezirk Düsseldorf und ist als siebzehntgrößte Stadt Deutschlands eines der Oberzentren des Landes Nordrhein-Westfalen.\n" +
-                "\n" + "Erste urkundliche Erwähnungen von Siedlungen stammen aus dem mittleren 11. Jahrhundert. Über viele Jahrhunderte war das heutige Stadtgebiet durch unterschiedliche Herrschaftsgebiete geteilt. Bis ins 19. Jahrhundert entwickelte sich die Region zu einem Zentrum der deutschen und europäischen Frühindustrialisierung; vor allem die Textilindustrie bescherte der Region Reichtum und Wachstum. Die Stadt wurde zum 1. August 1929 durch Vereinigung der kreisfreien Städte Elberfeld (Großstadt seit etwa 1883) und Barmen (Großstadt seit etwa 1884) sowie der Städte Ronsdorf, Cronenberg und Vohwinkel unter dem Namen Barmen-Elberfeld als kreisfreie Stadt gegründet und im Jahr 1930 in Wuppertal umbenannt[3][4]; diese Namensvergabe brachte die geografische Lage der Städte Barmen und Elberfeld im Tal der Wupper zum Ausdruck.\n" +
-                "\n" + "Im Nationalsozialismus war die Stadt ein wichtiges Zentrum sowohl der NSDAP als auch des Widerstands, sowohl der Gewerkschaften und politischen Opposition als auch der Kirchen, was nicht zuletzt die Barmer Erklärung zum Ausdruck brachte. Durch weitreichende Zerstörungen im Zweiten Weltkrieg nahm die Bedeutung der Stadt ab.\n" +
-                "\n" + "Die Topografie wird durch das Tal der Wupper geprägt, die sich rund 20 km durch das Stadtgebiet windet" +
-                "und deren steile Hänge oft bewaldet sind. Auf den nördlichen und südlichen Hochflächen gelegene Stadtteile gehen in die Wiesen und Wälder des Bergischen Landes über und machen Wuppertal, zusammen mit weitläufigen Grün- und Waldflächen wie etwa dem Barmer Wald, Scharpenacken oder Staatsforst Burgholz, zu einer Großstadt im Grünen. Als Wiege der Industrialisierung in Deutschland [5] ist die Stadt zugleich reich an großen Villenvierteln und Wohnhäusern aus der Gründerzeit: Etwa 4500 Baudenkmale befinden sich im Stadtgebiet.\n" +
-                "\n" + "Neben der seit 1901 bestehenden Schwebebahn ist die Universitätsstadt bekannt für das international renommierte Tanztheater Wuppertal Pina Bausch und das Wuppertal Institut für Klima, Umwelt, Energie, den Zoologischen Garten, die Historische Stadthalle, das Sinfonieorchester Wuppertal, das Von der Heydt-Museum für bildende Kunst, das Historische Zentrum mit dem Engels-Haus, den Skulpturenpark Waldfrieden, weitreichende Parkanlagen und Wälder mit Deutschlands größtem Arboretum im Staatsforst Burgholz und die größte Konfessionsvielfalt Deutschlands.\n" +
-                "\n" + "Bekannte Wuppertaler Sportvereine sind der ehemalige Fußball-Erstligist und UEFA-Cup-Teilnehmer Wuppertaler SV und der Handballbundesligist Bergischer HC, hinzu kommen Bundesligisten in weiteren Sportarten mit zahlreichen nationalen und internationalen Titeln.\n" +
-                "\n" + "Darüber hinaus sind durch Geburt oder Wirken zahlreiche Persönlichkeiten mit der Stadt verbunden, so etwa Pina Bausch, Friedrich Bayer, Gerhard Domagk, Friedrich Engels, Hans-Dietrich Genscher, Else Lasker-Schüler, Johannes Rau oder Hans Wolfgang Singer.";
+        String s = "Java ist eine objektorientierte Programmiersprache und eine eingetragene Marke des Unternehmens Sun Microsystems, welches 2010 von Oracle aufgekauft wurde. Die Programmiersprache ist ein Bestandteil der Java-Technologie – diese besteht grundsätzlich aus dem Java-Entwicklungswerkzeug (JDK) zum Erstellen von Java-Programmen und der Java-Laufzeitumgebung (JRE) zu deren Ausführung. Die Laufzeitumgebung selbst umfasst die virtuelle Maschine (JVM) und die mitgelieferten Bibliotheken. Java als Programmiersprache sollte nicht mit der Java-Technologie gleichgesetzt werden; Java-Laufzeitumgebungen führen Bytecode aus, der sowohl aus der Programmiersprache Java als auch aus anderen Programmiersprachen wie Groovy, Kotlin und Scala kompiliert werden kann. Im Prinzip könnte jede Programmiersprache als Grundlage für Java-Bytecode genutzt werden, meistens existieren aber keine entsprechenden Bytecode-Compiler.\n" +
+                "\n" +
+                "Die Programmiersprache Java dient innerhalb der Java-Technologie vor allem zum Formulieren von Programmen. Diese liegen zunächst als reiner, menschenverständlicher Text vor, dem sogenannten Quellcode. Dieser Quellcode ist nicht direkt ausführbar; erst der Java-Compiler, der Teil des Entwicklungswerkzeugs ist, übersetzt ihn in den maschinenverständlichen Java-Bytecode. Die Maschine, die diesen Bytecode ausführt, ist jedoch typischerweise virtuell – das heißt, der Code wird meist nicht direkt durch Hardware (etwa einen Mikroprozessor) ausgeführt, sondern durch entsprechende Software auf der Zielplattform.\n" +
+                "\n" +
+                "Zweck dieser Virtualisierung ist Plattformunabhängigkeit: Das Programm soll ohne weitere Änderung auf jeder Rechnerarchitektur laufen können, wenn dort eine passende Laufzeitumgebung installiert ist. Oracle selbst bietet Laufzeitumgebungen für die Betriebssysteme Linux, macOS, Solaris und Windows an. Andere Hersteller lassen eigene Java-Laufzeitumgebungen für ihre Plattform zertifizieren. Auch in Autos, HiFi-Anlagen und anderen elektronischen Geräten wird Java verwendet.\n" +
+                "\n" +
+                "Um die Ausführungsgeschwindigkeit zu erhöhen, werden Konzepte wie die Just-in-time-Kompilierung und die Hotspot-Optimierung verwendet. In Bezug auf den eigentlichen Ausführungsvorgang kann die JVM den Bytecode also interpretieren, ihn bei Bedarf jedoch auch kompilieren und optimieren.\n" +
+                "\n" +
+                "Java ist eine der populärsten Programmiersprachen. In dem seit 2001 veröffentlichten TIOBE-Index lag Java bis 2020, konkurrierend mit C, stets auf den ersten beiden, seit 2021 mit zusätzlicher Konkurrenz von Python, auf den ersten drei Plätzen des Rankings.[4][5] Nach dem RedMonk-Programmiersprachenindex 2019 liegt Java zusammen mit Python auf dem zweiten Platz nach JavaScript.[6][7]";
 
         String modifiedText = modifyText(s);
 
-        Map<String, Integer> map = new TreeMap<>(((o1, o2) -> o2.compareTo(o1)));
+        List<String> listStream = Arrays.stream(modifiedText.split(" ")).sorted(((o1, o2) -> o2.compareTo(o1))).toList();
 
-        List<String> listStream = Arrays.stream(modifiedText.split(" ")).toList();
+        Map<String, Integer> map = listStream.stream().distinct()
+                .collect(Collectors.toMap(s1 -> s1, s1 -> Collections.frequency(listStream, s1)));
 
-        listStream.stream().map(x -> map.put(x, Collections.frequency(listStream, x))).toList();
+        Map<String, Integer> result2 = new LinkedHashMap<>();
+        map.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey(((o1, o2) -> o2.compareTo(o1))))
+                .forEachOrdered(x -> result2.put(x.getKey(), x.getValue()));
 
-        // for (int i = 0; i < listStream.size(); i++) {map.put(listStream.get(i), Collections.frequency(listStream, listStream.get(i)));}
+        //listStream.stream().map(x -> map.put(x, Collections.frequency(listStream, x))).toList();
+        System.out.println("Count words :  " + map.keySet().size());
+        printMap(result2);
 
-        for (Map.Entry<String, Integer> pair: map.entrySet()){
+    }
+
+    public static void printMap(Map<String, Integer> map) {
+        for (Map.Entry<String, Integer> pair : map.entrySet()) {
             String key = pair.getKey();
             Integer value = pair.getValue();
             System.out.println(key + " --> " + value);
         }
     }
+
 
     public static String modifyText(String sourceText) {
         String modifiedText = sourceText.replace(",", "");
@@ -62,4 +77,10 @@ public class Main {
         return modifiedText;
     }
 }
-
+/*.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+//        // for (int i = 0; i < listStream.size(); i++) {map.put(listStream.get(i), Collections.frequency(listStream, listStream.get(i)));}
+//      List<String> stringList = Arrays.asList("as", "as", "as", "as", "ass", "asd", "asd", "asd", "asd", "asd", "ass", "ass");
+ */
