@@ -1,0 +1,16 @@
+Уровень сложности 4 из 10:
+
+Создайте класс ProductService, который зависит от классов ProductRepository и InventoryManager.
+   ProductRepository содержит метод getProductById(String productId),
+   возвращающий объект Product по идентификатору продукта.
+   InventoryManager содержит метод updateStock(String productId, int quantity),
+   обновляющий количество товара на складе. Напишите тест, используя Mockito, чтобы убедиться,
+   что методы getProductById и updateStock были вызваны с правильными аргументами.
+
+Создайте класс UserService, который зависит от класса UserRepository. UserRepository содержит метод getUserByEmail(String email),
+    возвращающий объект User по электронной почте. Напишите тест, используя Mockito, чтобы убедиться,
+    что метод getUserByEmail был вызван с правильной электронной почтой и обработан правильно.
+
+Создайте класс FileManager, который зависит от класса FileReader. FileReader содержит метод readFile(String filePath),
+    возвращающий содержимое файла. Напишите тест, используя Mockito, чтобы проверить,
+    что метод readFile был вызван с правильным путем к файлу и обработан корректно.

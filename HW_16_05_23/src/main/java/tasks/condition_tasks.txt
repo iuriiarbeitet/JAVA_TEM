@@ -1,0 +1,57 @@
+Описание задания.
+
+ 1 уровень сложности: Уровень сложности 1 из 10:
+
+Создайте класс Calculator, который содержит метод add(int a, int b) для сложения двух чисел. Напишите тест, используя Mockito, чтобы убедиться, что метод add был вызван правильно.
+
+
+Создайте класс EmailSender, который содержит метод sendEmail(String recipient, String message), отправляющий электронную почту получателю с заданным сообщением. Напишите тест, используя Mockito, чтобы убедиться, что метод sendEmail был вызван с правильными аргументами.
+
+
+Создайте класс Logger, который содержит метод log(String message), записывающий сообщение в журнал. Напишите тест, используя Mockito, чтобы убедиться, что метод log был вызван хотя бы один раз.
+
+
+Уровень сложности 2 из 10:
+
+
+
+Создайте класс PaymentService, который зависит от класса PaymentGateway. PaymentGateway содержит метод processPayment(double amount), который возвращает true, если платеж успешно обработан, и false в противном случае. Напишите тест, используя Mockito, чтобы проверить, что метод processPayment был вызван и вернул ожидаемый результат.
+
+
+Создайте класс UserService, который зависит от класса UserRepository. UserRepository содержит метод saveUser(User user), сохраняющий пользователя в базе данных. Напишите тест, используя Mockito, чтобы убедиться, что метод saveUser был вызван с корректным пользователем.
+
+
+Создайте класс WeatherService, который зависит от класса WeatherAPI. WeatherAPI содержит метод getTemperature(String city), возвращающий текущую температуру в указанном городе. Напишите тест, используя Mockito, чтобы проверить, что метод getTemperature был вызван с правильным городом и обработан правильно.
+
+
+Уровень сложности 3 из 10:
+
+
+
+Создайте класс OrderService, который зависит от классов PaymentGateway и InventoryManager. PaymentGateway содержит метод processPayment(double amount), а InventoryManager содержит метод checkStock(String item, int quantity), возвращающий true, если товар есть в наличии в нужном количестве, и false в противном случае. Напишите тест, используя Mockito, чтобы проверить, что методы processPayment и checkStock были вызваны с правильными аргументами.
+
+
+Создайте класс EmailService, который зависит от класса EmailClient. EmailClient предоставляет метод sendEmail(String recipient, String message), отправляющий электронную почту. Напишите тест, используя Mockito, чтобы убедиться, что метод sendEmail был вызван с правильными аргументами и обработан корректно.
+
+
+Создайте класс AuthenticationService, который зависит от класса UserRepository. UserRepository содержит метод getUserById(String userId), возвращающий объект User по идентификатору пользователя. Напишите тест, используя Mockito, чтобы убедиться, что метод getUserById был вызван с правильным идентификатором пользователя.
+
+
+Уровень сложности 4 из 10:
+
+
+
+Создайте класс ProductService, который зависит от классов ProductRepository и InventoryManager. ProductRepository содержит метод getProductById(String productId), возвращающий объект Product по идентификатору продукта. InventoryManager содержит метод updateStock(String productId, int quantity), обновляющий количество товара на складе. Напишите тест, используя Mockito, чтобы убедиться, что методы getProductById и updateStock были вызваны с правильными аргументами.
+
+
+Создайте класс UserService, который зависит от класса UserRepository. UserRepository содержит метод getUserByEmail(String email), возвращающий объект User по электронной почте. Напишите тест, используя Mockito, чтобы убедиться, что метод getUserByEmail был вызван с правильной электронной почтой и обработан правильно.
+
+
+Создайте класс FileManager, который зависит от класса FileReader. FileReader содержит метод readFile(String filePath), возвращающий содержимое файла. Напишите тест, используя Mockito, чтобы проверить, что метод readFile был вызван с правильным путем к файлу и обработан корректно.
+
+
+Уровень сложности 5 из 10:
+
+
+
+Создайте класс OrderService, который зависит от класса PaymentGateway. PaymentGateway содержит метод processPayment(double amount), который может выбросить исключение PaymentFailedException, если платеж не удался. Напишите тест, используя Mockito, чтобы проверить, что при выбрасывании исключения PaymentFailedException в нужных случаях, метод processPayment был обработан правильно.

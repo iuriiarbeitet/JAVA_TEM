@@ -1,0 +1,18 @@
+Уровень сложности 3 из 10:
+
+Создайте класс OrderService, который зависит от классов PaymentGateway и InventoryManager.
+PaymentGateway содержит метод processPayment(double amount),
+а InventoryManager содержит метод checkStock(String item, int quantity),
+возвращающий true, если товар есть в наличии в нужном количестве,
+и false в противном случае. Напишите тест, используя Mockito, чтобы проверить,
+что методы processPayment и checkStock были вызваны с правильными аргументами.
+
+Создайте класс EmailService, который зависит от класса EmailClient.
+EmailClient предоставляет метод sendEmail(String recipient, String message),
+отправляющий электронную почту. Напишите тест, используя Mockito, чтобы убедиться,
+что метод sendEmail был вызван с правильными аргументами и обработан корректно.
+
+Создайте класс AuthenticationService, который зависит от класса UserRepository.
+UserRepository содержит метод getUserById(String userId),
+возвращающий объект User по идентификатору пользователя.
+Напишите тест, используя Mockito, чтобы убедиться, что метод getUserById был вызван с правильным идентификатором пользователя.
